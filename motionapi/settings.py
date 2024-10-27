@@ -38,7 +38,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "https://motion-six-lyart.vercel.app",
     "https://motion-outs1ders-projects.vercel.app/",
-    "https://motion-git-main-outs1ders-projects.vercel.app/"
+    "https://motion-git-main-outs1ders-projects.vercel.app/",
 ]
 
 
