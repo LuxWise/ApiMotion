@@ -27,7 +27,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='your_secret_key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = []
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://motion-six-lyart.vercel.app"
+]
+
 
 REDER_EXTERNAL_HOST = os.environ.get('RENDER_EXTERNAL_HOST')
 if REDER_EXTERNAL_HOST:
@@ -45,11 +51,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'motion',
     'rest_framework',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -84,7 +92,7 @@ WSGI_APPLICATION = 'motionapi.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),
+        default='sqlite:///db.sqlite3',
         conn_max_age=600
     )
 }
