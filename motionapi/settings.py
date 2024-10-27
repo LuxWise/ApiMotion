@@ -29,16 +29,16 @@ DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = ['.onrender.com']
 
+AZURE_EXTERNAL_HOST = os.environ.get('AZURE_EXTERNAL_HOST')
+if AZURE_EXTERNAL_HOST:
+    ALLOWED_HOSTS.append(AZURE_EXTERNAL_HOST)
+
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "https://motion-six-lyart.vercel.app",
     "https://motion-h2p2ojb8j-outs1ders-projects.vercel.app"
 ]
-
-
-REDER_EXTERNAL_HOST = os.environ.get('RENDER_EXTERNAL_HOST')
-if REDER_EXTERNAL_HOST:
-    ALLOWED_HOSTS.append(REDER_EXTERNAL_HOST)
 
 
 # Application definition
@@ -93,10 +93,12 @@ WSGI_APPLICATION = 'motionapi.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='sqlite:///db.sqlite3',
-        conn_max_age=600
+        default=os.getenv('EXTERNAL_DATABASE_URL', 'sqlite:///db.sqlite3'),
+        conn_max_age=600,
+        ssl_require=True,
     )
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
