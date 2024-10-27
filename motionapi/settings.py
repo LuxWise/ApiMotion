@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='your_secret_key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = ['.onrender.com', 'apimotion-egfxawatbagugygz.brazilsouth-01.azurewebsites.net']
 
 AZURE_EXTERNAL_HOST = os.environ.get('AZURE_EXTERNAL_HOST')
 if AZURE_EXTERNAL_HOST:
