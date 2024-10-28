@@ -35,13 +35,14 @@ if AZURE_EXTERNAL_HOST:
 
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
     "https://vercel.com/api/toolbar/link/motion-six-lyart.vercel.app?via=deployment-domains-list&p=1&page=/",
     "https://vercel.com/api/toolbar/link/motion-git-main-outs1ders-projects.vercel.app?via=deployment-domains-list&p=1&page=/",
     "https://vercel.com/api/toolbar/link/motion-a5s5hdu8d-outs1ders-projects.vercel.app?via=deployment-domains-list&p=1&page=/",
     "https://motion-a5s5hdu8d-outs1ders-projects.vercel.app/",
     "https://motion-a5s5hdu8d-outs1ders-projects.vercel.app",
-    "https://motion-six-lyart.vercel.app"
+    "https://motion-six-lyart.vercel.app",
+    "https://motion-outs1ders-projects.vercel.app/",
+    "https://motion-git-main-outs1ders-projects.vercel.app/"
 ]
 
 
