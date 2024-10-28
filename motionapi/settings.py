@@ -39,7 +39,8 @@ CORS_ALLOWED_ORIGINS = [
     "https://vercel.com/api/toolbar/link/motion-git-main-outs1ders-projects.vercel.app?via=deployment-domains-list&p=1&page=/",
     "https://vercel.com/api/toolbar/link/motion-a5s5hdu8d-outs1ders-projects.vercel.app?via=deployment-domains-list&p=1&page=/",
     "https://motion-a5s5hdu8d-outs1ders-projects.vercel.app/",
-    "https://motion-a5s5hdu8d-outs1ders-projects.vercel.app"
+    "https://motion-a5s5hdu8d-outs1ders-projects.vercel.app",
+    "https://motion-six-lyart.vercel.app"
 ]
 
 
