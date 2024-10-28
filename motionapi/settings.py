@@ -36,9 +36,9 @@ if AZURE_EXTERNAL_HOST:
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "https://motion-six-lyart.vercel.app",
-    "https://motion-outs1ders-projects.vercel.app",
-    "https://motion-git-main-outs1ders-projects.vercel.app/",
+    "https://vercel.com/api/toolbar/link/motion-six-lyart.vercel.app?via=deployment-domains-list&p=1&page=/",
+    "https://vercel.com/api/toolbar/link/motion-git-main-outs1ders-projects.vercel.app?via=deployment-domains-list&p=1&page=/",
+    "https://vercel.com/api/toolbar/link/motion-a5s5hdu8d-outs1ders-projects.vercel.app?via=deployment-domains-list&p=1&page=/"
 ]
 
 
@@ -92,13 +92,22 @@ WSGI_APPLICATION = 'motionapi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('EXTERNAL_DATABASE_URL', 'sqlite:///db.sqlite3'),
-        conn_max_age=600,
-        ssl_require=True,
-    )
-}
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.getenv('EXTERNAL_DATABASE_URL'),
+            conn_max_age=600,
+            ssl_require=True,
+        )
+    }
+
 
 
 # Password validation
